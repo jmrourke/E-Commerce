@@ -1,5 +1,5 @@
 .newsletter {
-    width: 65%;
+    width: 60%;
     /* height: 40vh; */
     display: flex;
     flex-direction: column;
@@ -7,6 +7,7 @@
     justify-content: center;
     margin: auto;
     padding: 0px 140px;
+    margin-top: 50px;    
     margin-bottom: 100px;
     background: linear-gradient(180deg, green 0%, yellow 60%);
     gap: 30px;
@@ -25,14 +26,14 @@
 }
 
 .newsletter div {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: chocolate;
-  width: 730px;
-  height: 70px;
-  border-radius: 80px;
-  border: 1px solid red;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: chocolate;
+    width: 730px;
+    height: 70px;
+    border-radius: 80px;
+    border: 1px solid red;
 }
 
 .newsletter input {
