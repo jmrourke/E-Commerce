@@ -32,8 +32,11 @@ const ShopCategory = (props) => {
             return null;
           } // end if check on category
         })}
-
       </div>
+
+      <div className="shopcategory-loadmore">
+        Explore More
+      </div>  
 
     </div>
   )
