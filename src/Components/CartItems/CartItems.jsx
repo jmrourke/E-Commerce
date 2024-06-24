@@ -7,7 +7,8 @@ import remove_icon from '../Assets/cart_cross_icon.png'
 import './CartItems.css'
 
 const CartItems = () => {
-    const {all_product, cartItems, removeFromCart} = useContext(ShopContext);
+    const {all_product, cartItems, removeFromCart, getTotalCartAmount, getTotalCartItems} = useContext(ShopContext);
+    const shipping_cost = 5.00;
   return (
     <div className='cartitems'>
         <div className="cartitems-format-main">
@@ -27,9 +28,10 @@ const CartItems = () => {
                         <div className="cartitems-format cartitems-format-main">
                             <img src={e.image} alt="" className="carticon-product-icon" />
                             <p>{e.name}</p>
-                            <p>${e.new_price}</p>
+                            <p>${e.new_price.toFixed(2)}</p>
                             <button className='cartitems-quantity'>{cartItems[e.id]}</button>
-                            <p>${e.new_price * cartItems[e.id]}</p>
+                            <p>${(e.new_price * cartItems[e.id]).toFixed(2)}</p>
+                            {/* <p>${e.new_price * cartItems[e.id]}</p> */}
                             <img class='carticon-remove-icon' src={remove_icon} alt="" onClick={()=>{removeFromCart(e.id)}} />
                         </div>
                         <hr />
@@ -45,18 +47,22 @@ const CartItems = () => {
                 <h1>Cart TOTALS:</h1>
                 <div>
                     <div className="cartitems-total-item">
+                        <p>Number of items</p>
+                        <p>{getTotalCartItems()}</p>
+                    </div>
+                    <div className="cartitems-total-item">
                         <p>SubTotal</p>
-                        <p>${135.00}</p>
+                        <p>${getTotalCartAmount().toFixed(2)}</p>
                     </div>
                     <hr />
                     <div className="cartitems-total-item">
                         <p>Shipping</p>
-                        <p>FREE</p>
+                        <p>${shipping_cost.toFixed(2)}</p>
                     </div>
                     <hr />
                     <div className="cartitems-total-item">
                         <h3>Total</h3>
-                        <h3>${135.00}</h3>
+                        <h3>${(getTotalCartAmount()+shipping_cost).toFixed(2)}</h3>
                     </div>
                     <hr />
                 </div>
